@@ -1,16 +1,17 @@
-import { useState } from "react";
-import quotesData from '../data/quote.json';
+import CardCustom from "./CardCustom";
+import type {Quote}  from "../types/quote";
 
-interface Quote {
-  id: string,
-  quote: string
+interface QuoteListProps {
+  quoteList: Quote[]
 }
-const QuoteList = () => {
-  const [quotes, setQuotes] = useState<Quote[]>(quotesData as Quote[])
-  return (<>{quotes.map((quote: Quote) => 
-
-    <p key={quote.id}>{quote.quote}</p>
-  )}</>)
+const QuoteList = (props: QuoteListProps) => {
+  const {quoteList} = props;
+  return (
+    <>{quoteList.map((quote: Quote) => 
+      <CardCustom key={quote.id} quote={quote.quote}/>
+    )}
+    </>
+  )
 }
 
 export default QuoteList;
