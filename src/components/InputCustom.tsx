@@ -10,7 +10,7 @@ const InputCustom = (props: InputCustomProps) => {
     setInput(e.target.value);
   }
 
-  return (<><input onChange={(e) => handleChange(e)} value={input} placeholder="enter your own awesome quote"></input></>)
+  return (<input id='input_field'type='text' onChange={(e) => handleChange(e)} value={input} placeholder="enter your own awesome quote" style={{width: "50%"}}></input>)
 }
 
 export default InputCustom;

@@ -24,11 +24,13 @@ function App() {
   }
 
   return (
-    <>
-      <ButtonCustom input={input} handleSaveQuote={handleSaveQuote}/>
-      <InputCustom input={input} setInput={setInput} />
+    <div className='body'>
+      <div className='input'>
+        <InputCustom input={input} setInput={setInput} />
+        <ButtonCustom input={input} handleSaveQuote={handleSaveQuote}/>
+      </div>
       <QuoteList quoteList={quotes}/>
-    </>
+    </div>
   )
 }
 
