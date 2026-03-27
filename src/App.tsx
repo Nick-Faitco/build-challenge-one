@@ -20,12 +20,13 @@ function App() {
       id : newId
     }
     setQuotes([...quotes, newQuote]);
+    setInput('');
   }
 
   return (
     <>
       <ButtonCustom input={input} handleSaveQuote={handleSaveQuote}/>
-      <InputCustom setInput={setInput} />
+      <InputCustom input={input} setInput={setInput} />
       <QuoteList quoteList={quotes}/>
     </>
   )

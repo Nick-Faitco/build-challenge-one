@@ -1,25 +1,16 @@
-import { useRef } from "react";
-
 interface InputCustomProps {
+  input: string;
   setInput : React.Dispatch<React.SetStateAction<string>>
 }
 
 const InputCustom = (props: InputCustomProps) => {
-  const { setInput } = props;
+  const { input, setInput } = props;
 
-  const inputRef = useRef<HTMLInputElement>(null);
-  const handleChange = () => {
-    if ( inputRef.current ) {
-      if (inputRef.current.value.length > 0){
-        setInput(inputRef.current.value)
-      }
-      else {
-        setInput('')
-      }
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
   }
 
-  return (<><input onChange={() => handleChange()} ref={inputRef} placeholder="enter your own awesome quote"></input></>)
+  return (<><input onChange={(e) => handleChange(e)} value={input} placeholder="enter your own awesome quote"></input></>)
 }
 
 export default InputCustom;
